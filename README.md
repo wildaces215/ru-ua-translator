@@ -1,5 +1,5 @@
 # ru-ua-translator
-##Inspiration
+## Inspiration
 Currently at the time of this writing there is a war happening in Ukraine but also online. Cyber Space specficially. While doing research trying to understand both sides, I really haven't found any good tools that enables me to translate text and be able to analyze text of both Ukrainian and Russian in great scale. So I decided to start creating a tool that allows me to translate text of both Ukrainian and Russian. Save it to a database and be able to export for analysis.
 
 ## Getting Started 

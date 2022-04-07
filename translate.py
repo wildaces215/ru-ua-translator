@@ -10,6 +10,7 @@ class Translator():
         if ruText == None:
             return "No Text is inputed"
     
+    #Add Parameter indicating which language is to be used for translation.
     def translateRussianText(self,ruText):
         langs = translate.get_installed_languages()
         translated_eng = ''
@@ -23,12 +24,4 @@ class Translator():
     
     
 
-ru_text= sys.argv[1]
-
-
-
-app = Translator()
-
-app.checkText(ru_text)
-print(app.translateRussianText(ru_text))
 

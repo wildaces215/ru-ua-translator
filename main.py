@@ -1,8 +1,12 @@
 
 
 from argostranslate import package, translate
-from PyQt5.QtWidgets import QApplication, QWidget,QLabel,QGridLayout,QTextEdit,QPushButton
+from PyQt5.QtWidgets import QApplication,QSystemTrayIcon, QWidget,QLabel,QGridLayout,QTextEdit,QPushButton
 from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtGui import QIcon
+
+
+
 
 import sys
 
@@ -15,13 +19,17 @@ class MainScreen(QWidget):
          self.GUI()
     def GUI(self):
         
-       
+        
+        self.setWindowIcon(QIcon('icon.png'))        
+        
+
         grid = QGridLayout()
+        
         self.setLayout(grid)
 
         self.setGeometry(600, 400, 600, 400)
         
-        self.setWindowTitle("RU UA Translator")
+        self.setWindowTitle("RU to ENG Translator")
 
         self.leftTextBox = QTextEdit(self)
         self.rightTextBox = QTextEdit(self) 
@@ -37,8 +45,8 @@ class MainScreen(QWidget):
         grid.addWidget(self.rightTextBox,0,2)
 
        
-        grid.addWidget(self.addToDatabase,1,0)
-        grid.addWidget(self.exportDatabase,1,1)
+        #grid.addWidget(self.addToDatabase,1,0)
+        #grid.addWidget(self.exportDatabase,1,1)
 
         #Actions
         self.translateButton.clicked.connect(self.translate_action)
@@ -49,8 +57,13 @@ class MainScreen(QWidget):
     @pyqtSlot()
     def translate_action(self):
         original_text = self.leftTextBox.toPlainText()
+        if original_text == None:
+            pass
+        
         translator = Translator()
-        print(original_text)
+        translated_text=translator.translateRussianText(original_text)
+        self.rightTextBox.clear()
+        self.rightTextBox.append(translated_text)
         
     @pyqtSlot()
     def add_to_db(self):

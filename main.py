@@ -1,7 +1,7 @@
 
 
 from argostranslate import package, translate
-from PyQt5.QtWidgets import QApplication,QSystemTrayIcon, QWidget,QLabel,QGridLayout,QTextEdit,QPushButton
+from PyQt5.QtWidgets import QApplication,QSystemTrayIcon, QWidget,QLabel,QGridLayout,QTextEdit,QPushButton,QComboBox
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import QIcon
 
@@ -29,8 +29,12 @@ class MainScreen(QWidget):
 
         self.setGeometry(600, 400, 600, 400)
         
-        self.setWindowTitle("RU to ENG Translator")
+        self.setWindowTitle("English Translator")
 
+        self.selectedLangauge = QComboBox()
+
+        self.selectLangauge.addItems(["Ukranian","Russian"])
+        
         self.leftTextBox = QTextEdit(self)
         self.rightTextBox = QTextEdit(self) 
         
